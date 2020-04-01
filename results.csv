@@ -1,0 +1,32 @@
+﻿collect(act),ID,ent
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0008814,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0009146,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0014022,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0014025,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0017396,Interaction
+"[Change: record_Open_Time,Change: Actual_Start,Change: Actual_Start,Change: Planned_Start,Change: record_Open_Time,Change: Planned_Start,Change: Actual_End,Change: Actual_End,Change: Planned_End,Change: Requested_End_Date,Change: Planned_End,Change: Requested_End_Date,Change: record_Close_Time,Change: record_Close_Time]",C00003982,Change
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0023662,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0035355,Interaction
+"[Change: Actual_Start,Change: record_Open_Time,Change: Planned_Start,Change: Actual_End,Change: Planned_End,Change: record_Close_Time,Change: Requested_End_Date]",C00006723,Change
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0058909,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0059169,Interaction
+"[Change: record_Open_Time,Change: Planned_Start,Change: Planned_End,Change: Actual_Start,Change: Actual_End,Change: record_Close_Time,Change: Requested_End_Date]",C00009009,Change
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0064555,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0069134,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0071569,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0077573,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0080160,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0080748,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0086616,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0089004,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0103207,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0108979,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0113254,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0113305,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0113523,Interaction
+"[Change: Actual_Start,Change: record_Open_Time,Change: Planned_Start,Change: record_Close_Time,Change: Actual_End,Change: Planned_End,Change: Requested_End_Date]",C00014954,Change
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0117108,Interaction
+"[Change: record_Open_Time,Change: Planned_Start,Change: Actual_End,Change: Actual_Start,Change: record_Close_Time,Change: Requested_End_Date,Change: Planned_End]",C00015202,Change
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0132401,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0132943,Interaction
+"[Interaction: Open_Time_First_Touch,Interaction: Close_Time]",SD0134634,Interaction
