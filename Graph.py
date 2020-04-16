@@ -7,41 +7,73 @@ import pandas as pd
 import os
 inter=0
 change=0
-uri = "bolt://localhost:7687"
-#driver = GraphDatabase.driver(uri, auth=("neo4j", "BPI14"))
-#authenticate("localhost:7474", "neo4j", "<pass>")
 graph = Graph(password="BPI14") #connect to local Neo4j DB with password
-columns = defaultdict(list)
 
-def counter(ID):
-    print("ID:", ID)
+
+
+
+def counter (ID):
     inter=0
     change=0
+    
+    text_file = open("results_counter.txt", "a+")
+    text_file.write('ID:'+ID)
     with open(ID+'.csv', 'r') as csvfile:
-        reader = csv.DictReader(csvfile)  
+        reader = csv.DictReader(csvfile)
         for row in reader:
-                if row["ent"]=="Interaction":
-                        inter=inter+1
-                        if change > 0:
-                            print("Change", change)
-                            change=0
-                elif row["ent"]=="Change":
-                        change=change+1
-                        if inter > 0:
-                            print("Interaction",inter)               
-                            inter=0
+            
+            if row["ent"]=="Interaction":
+                inter=inter+1
+                if change > 0:
+                    text_file.write('\nChange:%d \n'%change)
+                    #text_file.write(change)
+                    change=0
+            elif row["ent"]=="Change":
+                
+                change=change+1
+                if inter > 0:
+                    text_file.write('\nInteraction:%d \n'%inter)
+                    #text_file.write(inter)
+                    inter=0
         else:
                 if inter > 0:
-                    print("Interaction",inter)
+                    text_file.write('\nInteraction:%d \n'%inter)
+                    #text_file.write(inter)
                 elif change > 0:
-                    print ("Change", change)
+                    text_file.write ('\nChange:%d \n'%change)
+                    #text_file.write(change)
                 else:
-                    print("There is no action")
+                    text_file.write("\nThere is no action")
+    #text_file.close()
+    #print('text file closed')
+    #csvfile.close()
+    #print('csv file closed')
+    #os.remove(ID+'.csv')
+    #print('csv file removed')
+
+    
+def empty_file_inter_check(ID):
+    
+    
+    if os.stat(ID+'.csv').st_size>38:
+        
+        with open(ID+'.csv', 'r') as csvfile:
+            
+            
+            header=next(csvfile)
+            first=next(csvfile)
+            #print("header",header)
+            #print("first line", first)
+            #print(first[1])
+            if first[1]=="I":
+                counter(ID)
+                #print("ID:", ID)
+                
+                #print (reader)
+                
 
                 
 def holosko(CI_name):
-    #print("holosko opened:",CI_name)
-    #driver = GraphDatabase.driver(uri, auth=("neo4j", "BPI14"))
     query="""  
           
                 CALL apoc.export.csv.query("MATCH  (n:Entity{EntityType:'Configuration_Item', Name:'%s'}) --(ev:Event)--(c:Common) 
@@ -57,8 +89,9 @@ def holosko(CI_name):
     graph.run(query)
     shutil.move("C:\\Users\\Pinar\\.Neo4jDesktop\\neo4jDatabases\\database-612a2166-8561-460d-85a0-36cc98a990ce\\installation-3.5.14\\import\\results_test.csv",
                 "D:\\TUE\\master\\Counter\\"+CI_name+".csv")
-    #print ("query is done")
-    counter(CI_name)
+    
+    empty_file_inter_check(CI_name)
+    
 
 def get_CI():
     CI_query="""CALL apoc.export.csv.query("MATCH (n:Configuration_Item) RETURN n.Name", "CI.csv",{stream:true})"""
@@ -67,8 +100,11 @@ def get_CI():
                 "D:\\TUE\\master\\Counter\\CI.csv")
     with open ('CI.csv','r') as first_file:
         csv_f = csv.DictReader(first_file)
+        #header=next(csv_f)
+        #first=next(csv_f)
+        #print("header",header)
+        #print("first line", first)
         for row in csv_f:
-            #print (len(row["n.Name"]))
             if len(row["n.Name"])>5:
                 holosko(row["n.Name"])
 
