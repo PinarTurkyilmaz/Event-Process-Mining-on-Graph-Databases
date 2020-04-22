@@ -73,7 +73,7 @@ def empty_file_inter_check(ID):
                 
 
                 
-def holosko(CI_name):
+def fun_query(CI_name):
     query="""  
           
                 CALL apoc.export.csv.query("MATCH  (n:Entity{EntityType:'Configuration_Item', Name:'%s'}) --(ev:Event)--(c:Common) 
@@ -100,12 +100,8 @@ def get_CI():
                 "D:\\TUE\\master\\Counter\\CI.csv")
     with open ('CI.csv','r') as first_file:
         csv_f = csv.DictReader(first_file)
-        #header=next(csv_f)
-        #first=next(csv_f)
-        #print("header",header)
-        #print("first line", first)
         for row in csv_f:
             if len(row["n.Name"])>5:
-                holosko(row["n.Name"])
+                fun_query(row["n.Name"])
 
 get_CI()
